@@ -17,7 +17,7 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.post("/", function(req, res) {
+  tweetsRoutes.post("/tweets/", function(req, res) {   // <--- Curious about why /tweets/ and not just /tweets ---
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
