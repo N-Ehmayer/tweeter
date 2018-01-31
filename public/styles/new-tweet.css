@@ -20,9 +20,6 @@
   width: -webkit-fill-available;
 }
 
-.new-tweet input {
-}
-
 .new-tweet .counter {
   float: right;
   position: relative;
