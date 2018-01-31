@@ -10,6 +10,11 @@
   background-color: white;
 }
 
+.tweet:hover {
+  filter: saturate(500%);
+  border: 2px solid black;
+}
+
 .tweet header {
   background-color: #d3d3d330;
   padding: 10px 10px;
@@ -22,6 +27,7 @@
 }
 
 .tweet h2 {
+  color: #868686;
   display: inline-block;
   position: relative;
   bottom: 25px;

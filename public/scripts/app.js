@@ -53,6 +53,7 @@ const data = [
 ]
 
 
+//--- Renders each tweet to index.html ---
 function renderTweets(tweet) {
 
   tweet.forEach(function(num, index) {
@@ -64,6 +65,7 @@ function renderTweets(tweet) {
 };
 
 
+// --- Creates tweet from tweet data ---
 function createTweetElement(tweet) {
 
   let $tweet = `<article class="tweet">
