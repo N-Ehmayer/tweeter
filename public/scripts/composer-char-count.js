@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  //--- Keeps track of key presses inside new tweet text-box ---
+  //--- Keeps track of key presses inside compose tweet text-box ---
   $( "#new-tweet-input" ).on('keyup', function() {
 
     //--- Sets counter to remaining characters ---
@@ -15,6 +15,8 @@ $( document ).ready(function() {
     //--- Changes character counter to red when limit exceeded ---
     if (charsRemaining < 0) {
       counter.css("color", "red");
+    } else {
+      counter.css("color", "black");
     }
   });
 });

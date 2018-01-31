@@ -13,11 +13,9 @@
   margin: 15px 0 2px;
 }
 
-.new-tweet form {
-}
-
 .new-tweet textarea {
   width: -webkit-fill-available;
+  padding: 5px;
 }
 
 .new-tweet .counter {

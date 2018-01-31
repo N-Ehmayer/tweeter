@@ -1,0 +1,44 @@
+* {
+  /*border: 1px solid black;*/
+}
+
+.tweet {
+  border: 1px lightgrey solid;
+  border-radius: 5px;
+  margin: 25px 0;
+  display: block;
+  background-color: white;
+}
+
+.tweet header {
+  background-color: #d3d3d330;
+  padding: 10px 10px;
+  position: relative;
+  height: 73px;
+}
+
+.tweet img {
+  border-radius: 5px;
+}
+
+.tweet h2 {
+  display: inline-block;
+  position: relative;
+  bottom: 25px;
+  padding-left: 6px;
+}
+
+.tweet span {
+  float: right;
+  padding-top: 10px;
+  font-size: small;
+  color: grey;
+}
+
+.tweet footer {
+}
+
+.content {
+  border-bottom: 1px solid lightgrey;
+  padding: 30px 15px;
+}
