@@ -2,7 +2,7 @@
 // --- Creates tweet from tweet data ---
 function createTweetElement(tweet) {
 
-  //--- Converts time passed in milliseconds to human readable output ---
+  //--- Converts time passed in milliseconds to human readable output0 ---
   let timePassedMilli = Date.now() - tweet.created_at;
   let date = new Date(timePassedMilli);
 
@@ -40,9 +40,6 @@ function renderTweets(tweet) {
 };
 
 
-//--- Execute when all DOM elements loaded ---
-$(function() {
-
 //--- Loads the rendered tweets from /tweets to the DOM ---
   function loadTweets() {
     $.ajax({
@@ -60,6 +57,27 @@ $(function() {
 
   };
 
+
+//--- Loads flash error message to the new tweet object ---
+  function loadMessage(err) {
+
+    const $container = $('#flash-holder');
+
+    if (err === 'no input') {
+      let $message = "You didn't Tweet anything!";
+      $container.append($message);
+    } else if (!err) {
+      let $message = "Character limit exceeded!";
+      $container.append($message);
+    }
+    $container.css('color', '#ff0000');
+  }
+
+
+
+//--- Execute when all DOM elements loaded ---
+$(function() {
+
   loadTweets();
 
 //--- Executes when new tweet from is submitted ---
@@ -69,11 +87,17 @@ $(function() {
 
     const tweet = $('#new-tweet-input').val();
 
+    $('#flash-holder').empty().css('display', 'block');
     if (!tweet) {
       console.log("No text input");
+      loadMessage('no input');
+      $('#flash-holder').delay(4000).fadeOut();
+      //$('#flash-holder').empty();
 
     } else if (tweet.length > 140) {
       console.log("Too many characters");
+      loadMessage();
+      $('#flash-holder').delay(4000).fadeOut();
 
     } else {
 
