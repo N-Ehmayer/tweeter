@@ -6,10 +6,10 @@ function createTweetElement(tweet) {
   let timePassedMilli = Date.now() - tweet.created_at;
   let date = new Date(timePassedMilli);
 
-  var str = '';
-  str += date.getUTCDate()-1 + " days, ";
-  str += date.getUTCHours() + " hours, ";
-  str += date.getUTCMinutes() + " minutes ago";
+  var timeStr = '';
+  timeStr += date.getUTCDate()-1 + " days, ";
+  timeStr += date.getUTCHours() + " hours, ";
+  timeStr += date.getUTCMinutes() + " minutes ago";
 
 
   let $tweet = `<article class="tweet">
@@ -19,8 +19,8 @@ function createTweetElement(tweet) {
                      <span>${tweet.user.handle}</span>
                    </header>
                    <footer>
-                     <p class="content">${tweet.content.text}</p>
-                     <p>${str}</p>
+                     <p class="content">${escape(tweet.content.text)}</p>
+                     <p>${timeStr}</p>
                    </footer>
                  </article>`;
   return $tweet;
@@ -33,14 +33,13 @@ function renderTweets(tweet) {
 
   tweet.forEach(function(num, index) {
     let currentTweet = createTweetElement(num);
-    //console.log(currentTweet);
     $('#tweets-container').prepend(currentTweet);
   });
 
 };
 
 
-//--- Loads the rendered tweets from /tweets to the DOM ---
+  //--- Loads the rendered tweets from /tweets to the DOM ---
   function loadTweets() {
     $.ajax({
       url: '/tweets/',
@@ -58,7 +57,7 @@ function renderTweets(tweet) {
   };
 
 
-//--- Loads flash error message to the new tweet object ---
+  //--- Loads flash error message to the new tweet object ---
   function loadMessage(err) {
 
     const $container = $('#flash-holder');
@@ -73,6 +72,12 @@ function renderTweets(tweet) {
     $container.css('color', '#ff0000');
   }
 
+  // --- Escapes user inputted strings before they are read by the DOM ---
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
 
 //--- Execute when all DOM elements loaded ---
