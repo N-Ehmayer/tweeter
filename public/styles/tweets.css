@@ -47,4 +47,5 @@
 .content {
   border-bottom: 1px solid lightgrey;
   padding: 30px 15px;
+  word-wrap: break-word;
 }
