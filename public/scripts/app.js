@@ -2,6 +2,16 @@
 // --- Creates tweet from tweet data ---
 function createTweetElement(tweet) {
 
+  //--- Converts time passed in milliseconds to human readable output ---
+  let timePassedMilli = Date.now() - tweet.created_at;
+  let date = new Date(timePassedMilli);
+
+  var str = '';
+  str += date.getUTCDate()-1 + " days, ";
+  str += date.getUTCHours() + " hours, ";
+  str += date.getUTCMinutes() + " minutes ago";
+
+
   let $tweet = `<article class="tweet">
                    <header>
                      <img src="${tweet.user.avatars.small}" />
@@ -10,7 +20,7 @@ function createTweetElement(tweet) {
                    </header>
                    <footer>
                      <p class="content">${tweet.content.text}</p>
-                     <p>${tweet.created_at}</p>
+                     <p>${str}</p>
                    </footer>
                  </article>`;
   return $tweet;
