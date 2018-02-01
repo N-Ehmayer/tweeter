@@ -85,7 +85,7 @@ $(function() {
 
   loadTweets();
 
-//--- Executes when new tweet from is submitted ---
+  //--- Executes when new tweet from is submitted ---
   $('#tweet-form').on('submit', function(event) {
 
     event.preventDefault();
@@ -97,7 +97,6 @@ $(function() {
       console.log("No text input");
       loadMessage('no input');
       $('#flash-holder').delay(4000).fadeOut();
-      //$('#flash-holder').empty();
 
     } else if (tweet.length > 140) {
       console.log("Too many characters");
