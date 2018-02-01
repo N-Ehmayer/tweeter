@@ -41,6 +41,13 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.get("/tweets/", function(req, res) {
+    DataHelpers.getTweets((err, tweets) => {
+      console.log(tweets)
+      res.json(tweets);
+    });
+  });
+
   return tweetsRoutes;
 
 }
