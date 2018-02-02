@@ -42,7 +42,7 @@ function renderTweets(tweet) {
   //--- Loads the rendered tweets from /tweets to the DOM ---
   function loadTweets() {
     $.ajax({
-      url: '/tweets/',
+      url: '/tweets',
       method: 'GET',
       success: function(tweets) {
         $('#tweets-container').empty();
@@ -116,7 +116,7 @@ $(function() {
     } else {
 
       $.ajax({
-        url: '/tweets/',
+        url: '/tweets',
         method: 'POST',
         data: $(this).serialize(),
 

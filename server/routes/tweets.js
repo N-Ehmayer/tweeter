@@ -17,7 +17,7 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.post("/tweets/", function(req, res) {
+  tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
@@ -41,12 +41,12 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.get("/tweets/", function(req, res) {
-    DataHelpers.getTweets((err, tweets) => {
-      console.log(tweets)
-      res.json(tweets);
-    });
-  });
+  // tweetsRoutes.get("/tweets/", function(req, res) {
+  //   DataHelpers.getTweets((err, tweets) => {
+  //     console.log(tweets)
+  //     res.json(tweets);
+  //   });
+  // });
 
   return tweetsRoutes;
 
