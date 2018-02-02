@@ -8,12 +8,21 @@
   margin: 25px 0;
   display: block;
   background-color: white;
+  opacity: 0.6;
 }
 
+
+
 .tweet:hover {
-  filter: saturate(500%);
-  border: 2px solid black;
+  opacity: 1;
+  color: black;
 }
+
+
+
+
+
+
 
 .tweet header {
   background-color: #d3d3d330;
@@ -26,8 +35,9 @@
   border-radius: 5px;
 }
 
-.tweet h2 {
-  color: #868686;
+
+h2 {
+  color: black;
   display: inline-block;
   position: relative;
   bottom: 25px;
@@ -46,6 +56,12 @@
 
 .content {
   border-bottom: 1px solid lightgrey;
-  padding: 30px 15px;
+  padding: 0 10px 15px 10px;
   word-wrap: break-word;
 }
+
+.age-display {
+  font-size: x-small;
+  padding-left: 8px;
+}
+

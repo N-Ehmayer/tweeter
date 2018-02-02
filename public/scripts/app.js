@@ -20,7 +20,7 @@ function createTweetElement(tweet) {
                    </header>
                    <footer>
                      <p class="content">${escape(tweet.content.text)}</p>
-                     <p>${timeStr}</p>
+                     <p class="age-display">${timeStr}</p>
                    </footer>
                  </article>`;
   return $tweet;
@@ -90,7 +90,7 @@ $(function() {
 
   $('#new-tweet-toggle').on('click', function(event) {
     console.log("pressed");
-    $('.new-tweet').toggle('show');
+    $('.new-tweet').slideToggle('show');
 
   });
 
