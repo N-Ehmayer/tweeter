@@ -85,8 +85,9 @@ $(function() {
 
   loadTweets();
 
-  //--- Toggles compose compose new tweet container ---
+  //--- Toggles between show/hide 'compose new tweet' container ---
   $('.new-tweet').hide();
+
   $('#new-tweet-toggle').on('click', function(event) {
     console.log("pressed");
     $('.new-tweet').toggle('show');
@@ -122,6 +123,7 @@ $(function() {
         success: function(tweets) {
           console.log("success");
           loadTweets();
+          $('#new-tweet-input').val('');
         },
         error: function(err) {
           console.log(err);
