@@ -85,14 +85,23 @@ $(function() {
 
   loadTweets();
 
+  //--- Toggles compose compose new tweet container ---
+  $('.new-tweet').hide();
+  $('#new-tweet-toggle').on('click', function(event) {
+    console.log("pressed");
+    $('.new-tweet').toggle('show');
+
+  });
+
+
   //--- Executes when new tweet from is submitted ---
   $('#tweet-form').on('submit', function(event) {
-
     event.preventDefault();
 
     const tweet = $('#new-tweet-input').val();
 
     $('#flash-holder').empty().css('display', 'block');
+
     if (!tweet) {
       console.log("No text input");
       loadMessage('no input');
