@@ -6,11 +6,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-!["Main page"]()
-!["Toggled 'compose new Tweet box'"]()
-!["'Characted limit reached' flash error message + character counter"]()
-!["New tweet added to list of tweets"]()
-!["New tweet added to list of tweets"]()
+!["Main page"](https://github.com/N-Ehmayer/tweeter/blob/master/docs/main-page.png?raw=true)
+!["Toggled 'compose new Tweet box'"](https://github.com/N-Ehmayer/tweeter/blob/master/docs/toggled-compose.png?raw=true)
+!["'Characted limit reached' flash error message + character counter"](https://github.com/N-Ehmayer/tweeter/blob/master/docs/flash.png?raw=true)
+!["New tweet added to list of tweets"](https://github.com/N-Ehmayer/tweeter/blob/master/docs/compose-new.png?raw=true)
+!["New tweet added to list of tweets"](https://github.com/N-Ehmayer/tweeter/blob/master/docs/new-added.png?raw=true)
 
 ## Getting Started
 
