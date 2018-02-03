@@ -39,7 +39,6 @@ function renderTweets(tweet) {
     let currentTweet = createTweetElement(num);
     $('#tweets-container').prepend(currentTweet);
   });
-
 };
 
 
@@ -57,7 +56,6 @@ function loadTweets() {
       console.log(err);
     }
   });
-
 };
 
 
@@ -93,9 +91,7 @@ $(function() {
   $('.new-tweet').hide();
 
   $('#new-tweet-toggle').on('click', function(event) {
-    console.log("pressed");
     $('.new-tweet').slideToggle('show');
-
   });
 
 
@@ -108,17 +104,14 @@ $(function() {
     $('#flash-holder').empty().css('display', 'block');
 
     if (!tweet) {
-      console.log("No text input");
       loadMessage('no input');
       $('#flash-holder').delay(4000).fadeOut();
 
     } else if (tweet.length > 140) {
-      console.log("Too many characters");
       loadMessage();
       $('#flash-holder').delay(4000).fadeOut();
 
     } else {
-
       $.ajax({
         url: '/tweets',
         method: 'POST',
