@@ -1,14 +1,18 @@
 
-// --- Creates tweet from tweet data ---
+// --- Creates tweet from tweet data ---------------------------------------
 function createTweetElement(tweet) {
 
-  //--- Converts time passed in milliseconds to human readable output0 ---
+  //--- Converts time passed in milliseconds to human readable output ------
   let timePassedMilli = Date.now() - tweet.created_at;
   let date = new Date(timePassedMilli);
 
   var timeStr = '';
-  timeStr += date.getUTCDate()-1 + " days, ";
-  timeStr += date.getUTCHours() + " hours, ";
+  if (date.getUTCDate()-1 > 0) {
+    timeStr += date.getUTCDate()-1 + " days, ";
+  }
+  if (date.getUTCHours() > 0) {
+    timeStr += date.getUTCHours() + " hours, ";
+  }
   timeStr += date.getUTCMinutes() + " minutes ago";
 
 
@@ -40,44 +44,44 @@ function renderTweets(tweet) {
 
 
   //--- Loads the rendered tweets from /tweets to the DOM ---
-  function loadTweets() {
-    $.ajax({
-      url: '/tweets',
-      method: 'GET',
-      success: function(tweets) {
-        $('#tweets-container').empty();
-        console.log("success");
-        renderTweets(tweets);
-      },
-      error: function(err) {
-        console.log(err);
-      }
-    });
-
-  };
-
-
-  //--- Loads flash error message to the new tweet object ---
-  function loadMessage(err) {
-
-    const $container = $('#flash-holder');
-
-    if (err === 'no input') {
-      let $message = "You didn't Tweet anything!";
-      $container.append($message);
-    } else if (!err) {
-      let $message = "Character limit exceeded!";
-      $container.append($message);
+function loadTweets() {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    success: function(tweets) {
+      $('#tweets-container').empty();
+      console.log("success");
+      renderTweets(tweets);
+    },
+    error: function(err) {
+      console.log(err);
     }
-    $container.css('color', '#ff0000');
-  }
+  });
 
-  // --- Escapes user inputted strings before they are read by the DOM ---
-  function escape(str) {
-    var div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
+};
+
+
+//--- Loads flash error message to the new tweet object ---
+function loadMessage(err) {
+
+  const $container = $('#flash-holder');
+
+  if (err === 'no input') {
+    let $message = "You didn't Tweet anything!";
+    $container.append($message);
+  } else if (!err) {
+    let $message = "Character limit exceeded!";
+    $container.append($message);
   }
+  $container.css('color', '#ff0000');
+}
+
+// --- Escapes user inputted strings before they are read by the DOM ---
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 
 //--- Execute when all DOM elements loaded ---
@@ -95,7 +99,7 @@ $(function() {
   });
 
 
-  //--- Executes when new tweet from is submitted ---
+  //--- Executes when new tweet form is submitted ---
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
 
